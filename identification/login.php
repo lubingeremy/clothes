@@ -1,7 +1,6 @@
 <?php
     require_once('../functions/auth.php');
     $error = null;
-    $admin = False;
 
     if(is_connected()){
         header('Location: ../index.php');
@@ -28,6 +27,7 @@
     <title>CLOTHES | Connexion</title>
 </head>
 <body>
+    <a href="../index.php">ACCEUIL LISTE PRODUITS</a>
     <h1>Connexion client</h1>
     <form action="" method="POST">
         <label for="username">Nom d'utilisateur</label>
@@ -37,5 +37,6 @@
         <input id="password" type="password" name="password" value="pwd">
         <button type="submit">Se connecter</button>
     </form>
+    <a href="../admin/login.php">Admin</a>
 </body>
 </html>

@@ -27,6 +27,7 @@
     <title>CLOTHES | Connexion</title>
 </head>
 <body>
+    <a href="../index.php">ACCEUIL LISTE PRODUITS</a>
     <h1>Connexion employé</h1>
     <form action="" method="POST">
         <label for="username">Nom d'utilisateur</label>
@@ -36,5 +37,6 @@
         <input id="password" type="password" name="password">
         <button type="submit">Se connecter</button>
     </form>
+    <a href="../identification/login.php">Client</a>
 </body>
 </html>
