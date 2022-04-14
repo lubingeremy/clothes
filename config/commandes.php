@@ -1,38 +1,29 @@
 <?php
-
     function ajouterProduit($image, $titre, $prix, $category){
         if(require("connexion.php")){
-            $req = $access -> prepare("INSERT INTO products (image, titre, prix, category) VALUES ('$image', '$titre', '$prix', '$category')");
-                    
-            $req -> execute(array($image,$titre,$prix,$category));
-
-            $req -> closeCursor();
+            $req = $pdo->exec("INSERT INTO products (image, titre, prix, category) VALUES ('$image', '$titre', '$prix', '$category')");
         }
     }
     function afficherListeProduits(){
         if(require("connexion.php")){
             // Récupère les élément de produits, ordonné par id
-            $req = $access->prepare("SELECT * FROM products ORDER BY id DESC");
+            $query = $pdo->query("SELECT * FROM products ORDER BY id DESC");
             // exécute la commande précédente
-            $req -> execute();
+            // $req -> execute();
 
-            $data = $req->fetchALL(PDO::FETCH_OBJ);
+            $data = $query->fetchAll(PDO::FETCH_OBJ);
             
             return $data;
             
-            $req -> closeCursor();
+            // $req -> closeCursor();
         }
     }
     function afficherPP($id){
         if(require("config/connexion.php")){
             // Récupère les élément de produits, ordonné par id
-            $req = $access->prepare("SELECT * FROM products WHERE id = '$id'");
-            // exécute la commande précédente
-            $req -> execute();
+            $query = $pdo->query("SELECT * FROM products WHERE id = '$id'");
             
-            $data = $req -> fetchALL(PDO::FETCH_OBJ);
-            
-            $req -> closeCursor();
+            $data = $query -> fetchALL(PDO::FETCH_OBJ);
 
             return $data;
         }
