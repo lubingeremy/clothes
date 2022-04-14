@@ -17,9 +17,10 @@
     function disconnect(): void{
         // $_SESSION[];
     }
-    
-    function register($lastName,$name,$username,$password){
-        if(require("connexion.php")){
-            
+
+    function register($lastName,$name,$username,$gender,$age,$email,$password){
+        if(require("../config/connexion.php")){
+            $pass = password_hash($password, PASSWORD_DEFAULT);
+            $pdo->exec("INSERT INTO users (lastName, firstName, username, gender, age, email, password, casual, boheme, streetwear, glamour) VALUES ('$lastName','$name', '$username', '$gender','$age', '$email', '$pass',3,3,3,3)");
         }
     }
