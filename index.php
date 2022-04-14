@@ -24,7 +24,7 @@
 <body>
     <a href="admin/index.php" class="btnMenu">Admin</a>
     <?php if(!is_connected()): ?>
-        <a href="identification/signup.php" class="btnMenu">Inscription</a>
+        <a href="identification/register.php" class="btnMenu">Inscription</a>
         <a href="identification/login.php" class="btnMenu">Connexion</a>
     <?php  else: ?>
         <a href="identification/logout.php" class="btnMenu">Se déconnecter</a>

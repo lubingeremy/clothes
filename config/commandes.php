@@ -57,24 +57,6 @@
                 }
                 
                 $pdo->exec("INSERT INTO product_category (product_id, category_id) VALUES ('$product_id', '$category_id')");
-                
-                // $req = execute();
-                
-                // $req = closeCursor();
             }
         }
-        // function ajouter($image, $titre, $prix, $category){
-        //     if(require("connexion.php")){
-        //         $req = $access -> prepare("INSERT INTO produits (image, titre, prix, category) VALUES ('$image', '$titre', '$prix', '$category')");
-                
-        //         $req -> execute();
-    
-        //         $lastId = $req -> lastInsertId();
-                
-        //         ajouterLien($lastId,$category);
-    
-        //         $req -> closeCursor();
-    
-        //     }
-        // }
 ?>

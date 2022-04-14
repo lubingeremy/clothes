@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLOTHES | Connexion</title>
+    <title>CLOTHES | Inscription</title>
 </head>
 <body>
     <form action="/action_page.php" method="POST">

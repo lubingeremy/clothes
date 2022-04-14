@@ -17,3 +17,7 @@
     function disconnect(): void{
         // $_SESSION[];
     }
+
+    function register($lastName,$name,$username,$password){
+        
+    }
