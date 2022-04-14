@@ -1,5 +1,5 @@
 <?php
-    require_once ("config/commandes.php");
+    require_once ("config/functions.php");
     var_dump($_GET);
     if(!empty($_GET['idProduit'])){
         $produit = afficherPP($_GET['idProduit']);

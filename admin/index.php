@@ -1,5 +1,5 @@
 <?php
-    require("../config/commandes.php");
+    require("../config/functions.php");
     require("../functions/auth.php");
     $userCred = "admin";
     // user_connected($admin);

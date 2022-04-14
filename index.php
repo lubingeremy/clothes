@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-    require_once("config/commandes.php");
+    require_once("config/functions.php");
     require_once("functions/auth.php");
     $produits = (array)afficherListeProduits();
     $prod = shuffle($produits);
