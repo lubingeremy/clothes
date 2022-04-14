@@ -17,7 +17,9 @@
     function disconnect(): void{
         // $_SESSION[];
     }
-
+    
     function register($lastName,$name,$username,$password){
-        
+        if(require("connexion.php")){
+            
+        }
     }

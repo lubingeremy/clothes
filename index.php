@@ -5,7 +5,6 @@
     require_once("functions/auth.php");
     $produits = (array)afficherListeProduits();
     $prod = shuffle($produits);
-    // var_dump($produits);
 ?>
 
 <html lang="fr">
