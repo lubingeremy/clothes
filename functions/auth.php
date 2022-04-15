@@ -14,27 +14,27 @@
             }
     }
 
-    function disconnect(): void{
-        // $_SESSION[];
-    }
-
-    function register($lastName,$name,$username,$gender,$age,$email,$password){
+    function register($lastName,$name,$gender,$age,$email,$password){
         if(require("../config/connexion.php")){
             $pass = password_hash($password, PASSWORD_DEFAULT);
-            $pdo->exec("INSERT INTO users (lastName, firstName, username, gender, age, email, password, casual, boheme, streetwear, glamour) VALUES ('$lastName','$name', '$username', '$gender','$age', '$email', '$pass',3,3,3,3)");
+            $pdo->exec("INSERT INTO users (lastName, firstName, gender, age, email, password, casual, boheme, streetwear, glamour) VALUES ('$lastName','$name', '$gender','$age', '$email', '$pass',3,3,3,3)");
         }
     }
 
     function login($email,$password){
         if(require("../config/connexion.php")){
             $query = $pdo->query("SELECT * FROM users WHERE email = '$email'");
-            foreach ($query as $user){
-                if(password_verify($user -> password, $password)){
+            $data = $query->fetchAll(PDO::FETCH_OBJ);
+            foreach ($data as $user){
+                if(password_verify($password,$user -> password)){
                     session_start();
                     $_SESSION['connected'] = True;
+                    if($user -> op === 1){
+                        $_SESSION['op'] = True;
+                    }
                     $_SESSION['id'] = $user -> id;
                     $_SESSION['lastName'] = $user -> lastName;
-                    $_SESSION['name'] = $user -> name;
+                    $_SESSION['firstName'] = $user -> firstName;
                     header('Location: ../index.php');
                     exit();
                 } else{

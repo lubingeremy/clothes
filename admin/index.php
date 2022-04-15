@@ -4,7 +4,10 @@
     $userCred = "admin";
     // user_connected($admin);
     user_connected();
-    
+    if(!$_SESSION['op']){
+        header('Location: ../admin/login.php');
+        exit();
+    }
     $produits = (array)afficherListeProduits();
 ?>
 

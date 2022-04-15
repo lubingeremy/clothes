@@ -6,9 +6,9 @@
         header('Location: ../index.php');
         exit();
     }
-    if(!empty($_POST['lastName']) && !empty($_POST['name']) && !empty($_POST['username']) && !empty($_POST['gender']) && !empty($_POST['age']) && !empty($_POST['email']) && !empty($_POST['password'])){
+    if(!empty($_POST['lastName']) && !empty($_POST['name']) && !empty($_POST['gender']) && !empty($_POST['age']) && !empty($_POST['email']) && !empty($_POST['password'])){
         try{
-            register($_POST['lastName'],$_POST['name'],$_POST['username'],$_POST['gender'],$_POST['age'],$_POST['email'],$_POST['password']);
+            register($_POST['lastName'],$_POST['name'],$_POST['gender'],$_POST['age'],$_POST['email'],$_POST['password']);
         } catch (Exception $e){
             $error = TRUE;
             var_dump($e);
@@ -45,9 +45,6 @@
 
             <label for="name">Prénom</label>
             <input id="name" name="name" type="text" required value="fsognnqfqdp">
-
-            <label for="username">Nom d'utilisateur</label>
-            <input id="username" name="username" type="text" required value="fsognnqfqdp">
 
             <label for="gender">Genre</label>
             <select name="gender" id="gender" required>

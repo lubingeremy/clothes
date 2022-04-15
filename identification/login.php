@@ -6,14 +6,14 @@
         header('Location: ../index.php');
         exit();
     }
-    if(!empty($_POST['username']) && !empty($_POST['password'])){
-        if($_POST['username'] === 'user' && $_POST['password'] === 'pwd'){
-            session_start();
-            $_SESSION['connected'] = True;
-            header('Location: ../index.php');
-            exit();
-        } else{
-            $error = "Identifiant incorrect";
+    if(!empty($_POST['email']) && !empty($_POST['password'])){
+        var_dump(login($_POST['email'],$_POST['password']));
+    }
+
+    // IDENTIFIANT INCORRECT A IMPLEMENTER
+    if(!empty($_POST['email']) && !empty($_POST['password'])){
+        if(!login($_POST['email'],$_POST['password'])){
+            $error = "Mot de passe incorrect";
             var_dump($error);
         }
     }
@@ -30,11 +30,11 @@
     <a href="../index.php">ACCEUIL LISTE PRODUITS</a>
     <h1>Connexion client</h1>
     <form action="" method="POST">
-        <label for="username">Nom d'utilisateur</label>
-        <input id="username" type="text" name="username" value="user">
+        <label for="email">Adresse mail</label>
+        <input id="email" type="email" name="email" value="adresse@mail.com">
 
         <label for="password">Mot de passe</label>
-        <input id="password" type="password" name="password" value="pwd">
+        <input id="password" type="password" name="password" value="mdpali">
         <button type="submit">Se connecter</button>
     </form>
     <a href="../admin/login.php">Admin</a>

@@ -2,7 +2,7 @@
     require_once('../functions/auth.php');
     $error = null;
     if(is_connected()){
-        header('Location: ../admin/index.php');
+        header('Location: ../index.php');
         exit();
     }
     if(!empty($_POST['username']) && !empty($_POST['password'])){

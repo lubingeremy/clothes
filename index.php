@@ -5,6 +5,10 @@
     require_once("functions/auth.php");
     $produits = (array)afficherListeProduits();
     $prod = shuffle($produits);
+    if(is_connected()){
+        var_dump($_SESSION['lastName']);
+        var_dump($_SESSION['firstName']);
+    }
 ?>
 
 <html lang="fr">
@@ -22,6 +26,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php if(is_connected()): ?>
+        <h2><?= $_SESSION['firstName']; ?></h2>
+        <h2><?= $_SESSION['lastName']; ?></h2>
+    <?php endif ?>
     <a href="admin/index.php" class="btnMenu">Admin</a>
     <?php if(!is_connected()): ?>
         <a href="identification/register.php" class="btnMenu">Inscription</a>
