@@ -50,4 +50,20 @@
                 $pdo->exec("INSERT INTO product_category (product_id, category_id) VALUES ('$product_id', '$category_id')");
             }
         }
+
+        // function afficherCompte(){
+        //     if(require("connexion.php")){
+        //         // Récupère les élément de produits, ordonné par id
+        //         $query = $pdo->query("SELECT * FROM users ORDER BY id DESC");
+        //         // exécute la commande précédente
+        //         // $req -> execute();
+    
+        //         $data = $query->fetchAll(PDO::FETCH_OBJ);
+                
+        //         return $data;
+                
+        //         // $req -> closeCursor();
+        //     }
+        // }
+
 ?>
