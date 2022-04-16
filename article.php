@@ -5,6 +5,9 @@
         $produit = afficherPP($_GET['idProduit']);
     }
     var_dump($produit);
+
+    
+
     foreach($produit as $prd): ?>
         <!DOCTYPE html>
         <html lang="fr">

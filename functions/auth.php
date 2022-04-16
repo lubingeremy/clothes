@@ -9,7 +9,7 @@
     
     function user_connected(): void{
             if(!is_connected()){
-                header('Location: ../identification/login.php');
+                header('Location: identification/login.php');
                 exit();
             }
     }
@@ -29,12 +29,15 @@
                 if(password_verify($password,$user -> password)){
                     session_start();
                     $_SESSION['connected'] = True;
-                    if($user -> op === 1){
+                    if($user -> op == 1){
                         $_SESSION['op'] = True;
+                    } else {
+                        $_SESSION['op'] = False;
                     }
                     $_SESSION['id'] = $user -> id;
                     $_SESSION['lastName'] = $user -> lastName;
                     $_SESSION['firstName'] = $user -> firstName;
+                    $_SESSION['reload'] = True;
                     header('Location: ../index.php');
                     exit();
                 } else{

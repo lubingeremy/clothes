@@ -1,5 +1,6 @@
 <?php
-    require_once('../functions/auth.php');
+    // require_once('../functions/auth.php');
+    require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'auth.php';
     $error = null;
 
     if(is_connected()){

@@ -12,7 +12,6 @@
         } catch (Exception $e){
             $error = TRUE;
             var_dump($e);
-            // echo $e;
         }
         // if($_POST['username'] === 'user' && $_POST['password'] === 'pwd'){
         //     session_start();

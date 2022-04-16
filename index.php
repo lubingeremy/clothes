@@ -3,12 +3,23 @@
 <?php
     require_once("config/functions.php");
     require_once("functions/auth.php");
-    $produits = (array)afficherListeProduits();
-    $prod = shuffle($produits);
-    if(is_connected()){
-        var_dump($_SESSION['lastName']);
-        var_dump($_SESSION['firstName']);
+    user_connected();
+
+    if($_SESSION['reload']){
+        $produits = (array)afficherListeProduits();
+        shuffle($produits);
+        $_SESSION['homeList'] = $produits;
+        $_SESSION['reload'] = False;
+    } else{
+        $produits = $_SESSION['homeList'];
     }
+
+    if(isset($_POST['reloadList'])){
+        $_SESSION['reload'] = True;
+        header('Location: index.php');
+        exit();
+    }
+    
 ?>
 
 <html lang="fr">
@@ -30,13 +41,20 @@
         <h2><?= $_SESSION['firstName']; ?></h2>
         <h2><?= $_SESSION['lastName']; ?></h2>
     <?php endif ?>
-    <a href="admin/index.php" class="btnMenu">Admin</a>
+    <?php if($_SESSION['op']):?>
+        <a href="admin/index.php" class="btnMenu">Admin</a>
+    <?php endif ?>
     <?php if(!is_connected()): ?>
         <a href="identification/register.php" class="btnMenu">Inscription</a>
         <a href="identification/login.php" class="btnMenu">Connexion</a>
     <?php  else: ?>
         <a href="identification/logout.php" class="btnMenu">Se déconnecter</a>
     <?php endif ?>
+
+    <form action="" method="post">
+        <input type="submit" id="reloadList" name="reloadList" value="Reload article list">
+    </form>
+
     <div class="container">
         <div class="row">
             <?php foreach($produits as $produit): ?>

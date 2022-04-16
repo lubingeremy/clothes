@@ -1,8 +1,6 @@
 <?php
-    require("../config/functions.php");
-    require("../functions/auth.php");
-    $userCred = "admin";
-    // user_connected($admin);
+    require_once("../config/functions.php");
+    require_once("../functions/auth.php");
     user_connected();
     if(!$_SESSION['op']){
         header('Location: ../admin/login.php');
