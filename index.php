@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
     require_once("config/functions.php");
     require_once("functions/auth.php");
@@ -22,6 +20,7 @@
     
 ?>
 
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
