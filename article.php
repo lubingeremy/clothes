@@ -27,7 +27,7 @@
             </div>
             <img src="<?= $prd -> image ?>" alt="Image produit">
             <script src="node_modules/timeme.js/timeme.min.js"></script>
-            <script src="scriptAlgo.js"></script>
+            <script src="scr.js"></script>
         </body>
         </html>
     <?php endforeach; ?>

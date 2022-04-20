@@ -72,6 +72,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <!-- <script src="js-mysql/app.js"></script> -->
+    <script src="node_modules\timeme.js\timeme.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

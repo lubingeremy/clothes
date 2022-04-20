@@ -4,23 +4,24 @@ TimeMe.initialize({
     idleTimeoutInSeconds: 30 // seconds
 });
 
+
 // ... Some time later ...
 
 // Retrieve time spent on current page
 
-// class Category{
-//     constructor(){
-//         this.pointsArticle = 3
-//     }
-// }
+class Category{
+    constructor(){
+        this.pointsArticle = 3
+    }
+}
 
-// var casual = new Category();
+var casual = new Category();
 
-// if(!empty(casual)){
-//     console.log("True ?")
-// } else{
-//     console.log(False)
-// }
+if(!empty(casual)){
+    console.log("True ?")
+} else{
+    console.log(False)
+}
 
 let timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
 
