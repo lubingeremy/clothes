@@ -17,7 +17,6 @@
         header('Location: index.php');
         exit();
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +71,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <script src="node_modules\timeme.js\timeme.min.js"></script>
-    <script src="script.js"></script>
+    <!-- <script src="timeme.min.jsnode_modules\timeme.js\timeme.min.js"></script>
+    <script src="script.js"></script> -->
 </body>
 </html>

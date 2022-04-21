@@ -38,7 +38,19 @@
                     $_SESSION['lastName'] = $user -> lastName;
                     $_SESSION['firstName'] = $user -> firstName;
                     $_SESSION['reload'] = True;
+
+                    setcookie('glamour', null, time() - 3600, "/");
+                    setcookie('streetwear', null, time() - 3600, "/");
+                    setcookie('boheme', null, time() - 3600, "/");
+                    setcookie('casual', null, time() - 3600, "/");
+
+                    setcookie('boheme',$user -> boheme, 0, '/');
+                    setcookie('glamour',$user -> glamour, 0, '/');
+                    setcookie('streetwear',$user -> streetwear, 0, '/');
+                    setcookie('casual',$user -> casual, 0, '/');
+
                     header('Location: ../index.php');
+
                     exit();
                 } else{
                     return False;

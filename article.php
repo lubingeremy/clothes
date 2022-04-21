@@ -4,7 +4,7 @@
     if(!empty($_GET['idProduit'])){
         $produit = afficherPP($_GET['idProduit']);
     }
-    var_dump($produit);
+    // var_dump($produit);
 
     
 
@@ -14,10 +14,11 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title><?=$prd -> titre?></title>
+            <title>CLOTHES | <?=$prd -> titre?></title>
         </head>
         <body>
             <a href="index.php">ACCEUIL</a>
+            <p id="compteur">COMPTEUR</p>
             <h2><?=$prd -> titre?></h2>
             <p>Catégorie: </p>
             <p id="category"><?= $prd -> category?></p>
