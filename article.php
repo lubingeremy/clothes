@@ -1,12 +1,10 @@
 <?php
     require_once ("config/functions.php");
-    var_dump($_GET);
+    // var_dump($_GET);
     if(!empty($_GET['idProduit'])){
         $produit = afficherPP($_GET['idProduit']);
     }
-    // var_dump($produit);
-
-    
+    require("header.php");    
 
     foreach($produit as $prd): ?>
         <!DOCTYPE html>
@@ -17,7 +15,6 @@
             <title>CLOTHES | <?=$prd -> titre?></title>
         </head>
         <body>
-            <a href="index.php">ACCEUIL</a>
             <p id="compteur">COMPTEUR</p>
             <h2><?=$prd -> titre?></h2>
             <p>Catégorie: </p>

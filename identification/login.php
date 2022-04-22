@@ -26,9 +26,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOTHES | Connexion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="../index.php">ACCEUIL LISTE PRODUITS</a>
     <h1>Connexion client</h1>
     <form action="" method="POST">
         <label for="email">Adresse mail</label>

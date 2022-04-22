@@ -1,6 +1,7 @@
 <?php
     require_once("../config/functions.php");
     require_once("../functions/auth.php");
+    require_once("../header.php");
     user_connected();
     if(!$_SESSION['op']){
         header('Location: ../admin/login.php');
@@ -16,10 +17,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Interface Admin</title>
-        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <a href="../index.php">ACCEUIL LISTE PRODUITS</a>
     <form method="POST">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
