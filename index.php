@@ -1,8 +1,9 @@
 <?php
+    var_dump($_COOKIE['casual']);
     require_once("config/functions.php");
     require_once("functions/auth.php");
+    require_once("config/cookies.php");
     user_connected();
-
     if($_SESSION['reload']){
         $produits = (array)afficherListeProduits();
         shuffle($produits);
@@ -11,12 +12,13 @@
     } else{
         $produits = $_SESSION['homeList'];
     }
-
+    
     if(isset($_POST['reloadList'])){
         $_SESSION['reload'] = True;
         header('Location: index.php');
         exit();
     }
+    updateCookies($_COOKIE['casual'], $_COOKIE['boheme'], $_COOKIE['streetwear'], $_COOKIE['glamour'], $_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
