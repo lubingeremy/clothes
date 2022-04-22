@@ -13,98 +13,57 @@ let palier = step;
 
 const category = document.getElementById('category').innerText;
 
-
-
-console.log(typeof(document.cookie))
-console.log(document.cookie)
-
 let compteur = document.getElementById('compteur');
-// compteur = "yell"
-let i;
 var cookies = []
 
 var cookiesList = document.cookie.split('; ');
-console.log(cookies);
+let i;
 for (i=1;i<=4;i++){
-    cookies[cookiesList[i].split("=")[0]] = parseInt(cookiesList[i].split("=")[1]);
-    // cookies[i-1] = [cookiesList[i].split("=")[0],parseInt(cookiesList[i].split("=")[1])];
+    if (cookiesList[i].split("=")[0] === category){
+        uniqueCookie = [cookiesList[i].split("=")[0], parseInt(cookiesList[i].split("=")[1])];
+    } else {
+        if(cookiesList[i].split("=")[1] >= 1){
+            cookies.push([cookiesList[i].split("=")[0],parseInt(cookiesList[i].split("=")[1])]);
+        }
+    }
 }
 
-// function getPoints(){
-//     for (let i = 0; i <= cookies.length; i++){
-//         if (category == cookies[i][0]){
-//             return cookies[i][1]
-//         }
-//     }
-// }
-
 function getPoints(){
-    switch (category){
-        case "boheme":
-            return cookies['boheme']
-            break
-        case "glamour":
-            return cookies['glamour']
-            break
-        case "streetwear":
-            return cookies['streetwear']
-            break
-        case "casual":
-            return cookies['casual']
-            break
+    for (let i = 0; i < cookies.length; i++){
+        if (category == cookies[i][0]){
+            return cookies[i][1]
+        }
     }
 }
 
 var points = getPoints();
 
 
-
-    
-
-// function countPoints(){
-//     // console.log("countPoints")
-//     let timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-//     compteur.innerText = timeSpentOnPage;
-//     // console.log(typeof(timeSpentOnPage));
-//     if (timeSpentOnPage >= palier){
-//         palier += step;
-//         if(cookies[category] < 12){
-//             oldValue = cookies[category]
-//             points = points + 1;
-//             cookies[category] = points
-//             cookie = category + "=" + points;
-
-//             document.cookie = cookie + "; 0; path=/";
-
-//             console.log("test " + points)
-//         }
-//         else{
-//             return ("Maximum points reached")
-//         }
-//     }
-// }
-
-// let lp = setInterval(countPoints,1000)
-
 /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-///////////////Compute cookies ratio/////////////////////////
+///////////////Compute cookies point/////////////////////////
 /////////////////////////////////////////////////////////////
 
+function updatePoints(line){
+    updatedCookie = line[0] + "=" + line[1];
+    document.cookie = updatedCookie + "; 0; path=/";
+}
 
-// var ranking = ["boheme"]
-
-
-function rank(){
-    let transVar;
-    // for (let i; i < cookies.length; i++){
-    for (ck of cookies){
-        if(cookies[ck] < cookies[i+1]){
-            transVar = cookies[i]
-            cookies[i] = cookies[i+1]
-            cookies[i+1] = transVar
+function removePoint(){
+    let key = 0;
+    let selectedCookie = cookies[0];
+    for (let i=1; i < cookies.length; i++){
+        if (selectedCookie[1] <= cookies[i][1] && cookies[i][1] > 0){
+            selectedCookie = cookies[i];
+            key = i;
         }
     }
+    if (cookies[key][1] <= 0){
+        return "Minimum point reached"
+    }
+    cookies[key][1] -= 1;
+    updatePoints(cookies[key]);
+    console.log(cookies);
+    return true;
 }
 
 function countPoints(){
@@ -114,18 +73,24 @@ function countPoints(){
     // console.log(typeof(timeSpentOnPage));
     if (timeSpentOnPage >= palier){
         palier += step;
-        if(cookies[category] < 12){
-            oldValue = cookies[category]
-            points = points + 1;
-            cookies[category] = points
-            cookie = category + "=" + points;
+        if(uniqueCookie[1] < 12){
+            if (removePoint()){
+                // oldValue = uniqueCookie[1];
+                // points = points + 1;
+                uniqueCookie[1] += 1;
+                // cookies[category] = points
+                cookie = category + "=" + uniqueCookie[1];
 
-            document.cookie = cookie + "; 0; path=/";
+                document.cookie = cookie + "; 0; path=/";
 
-            console.log("test " + points)
+                console.log("test " + uniqueCookie[1])
+            }
         }
         else{
-            return ("Maximum points reached")
+            console.log("Maximum points reached")
+            clearInterval(lp);
         }
     }
 }
+
+let lp = setInterval(countPoints,1000)
