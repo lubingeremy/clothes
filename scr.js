@@ -18,12 +18,15 @@ var cookies = []
 
 var cookiesList = document.cookie.split('; ');
 let i;
-for (i=1;i<=4;i++){
-    if (cookiesList[i].split("=")[0] === category){
-        uniqueCookie = [cookiesList[i].split("=")[0], parseInt(cookiesList[i].split("=")[1])];
-    } else {
-        if(cookiesList[i].split("=")[1] >= 1){
-            cookies.push([cookiesList[i].split("=")[0],parseInt(cookiesList[i].split("=")[1])]);
+
+for (i=0;i<=4;i++){
+    if (cookiesList[i].split("=")[0] != "PHPSESSID" && cookiesList[i].split("=")[0] != "__cfruid"){
+        if (cookiesList[i].split("=")[0] === category){
+            uniqueCookie = [cookiesList[i].split("=")[0], parseInt(cookiesList[i].split("=")[1])];
+        } else {
+            if(cookiesList[i].split("=")[1] >= 1){
+                cookies.push([cookiesList[i].split("=")[0],parseInt(cookiesList[i].split("=")[1])]);
+            }
         }
     }
 }
