@@ -45,9 +45,9 @@
                     break;
                 default:
                     var_dump("erreur");
-                }
-                
-                $pdo->exec("INSERT INTO product_category (product_id, category_id) VALUES ('$product_id', '$category_id')");
             }
+            $pdo->exec("INSERT INTO product_category (product_id, category_id) VALUES ('$product_id', '$category_id')");
         }
+    }
+
 ?>

@@ -26,7 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOTHES | Connexion</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <h1>Connexion client</h1>
@@ -36,7 +36,8 @@
 
         <label for="password">Mot de passe</label>
         <input id="password" type="password" name="password" value="mdpali">
-        <button type="submit">Se connecter</button>
+        <!-- <button type="submit">Se connecter</button> -->
+        <input type="submit" value="Se connecter">
     </form>
     <a href="../admin/login.php">Admin</a>
 </body>

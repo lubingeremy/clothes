@@ -21,41 +21,39 @@
 </head>
 <body>
     <form method="POST">
-        <div class="mb-3">
-            <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" name="nom"  required>
-        </div>
-        <div class="mb-3">
-            <label for="prix" class="form-label">Prix</label>
-            <input type="number" class="form-control" name="prix" step="0.01" min="0" required placeholder="ex: 789,98">
-        </div>
-        <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input type="text" class="form-control" name="image" required>
-        </div>
-        <div class="mb-3">
-            <label for="category" class="form-label">Style</label>
-            <select name="category" id="category" required>
-                <option value="boheme">Bohème</option>
-                <option value="casual">Casual</option>
-                <option value="glamour">Glamour</option>
-                <option value="streetwear">Streetwear</option>
-            </select>
-        </div>
-        <button type="submit" name="valider" class="btn btn-primary">Ajouter un nouveau produit</button>
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" name="nom"  required>
+
+        <label for="prix" class="form-label">Prix</label>
+        <input type="number" class="form-control" name="prix" step="0.01" min="0" required placeholder="ex: 789,98">
+
+        <label for="image" class="form-label">Image</label>
+        <input type="text" class="form-control" name="image" required>
+
+        <label for="category" class="form-label">Style</label>
+        <select name="category" id="category" required>
+            <option value="boheme">Bohème</option>
+            <option value="casual">Casual</option>
+            <option value="glamour">Glamour</option>
+            <option value="streetwear">Streetwear</option>
+        </select>
+        <input type="submit" value="Ajouter">
+        <!-- <button type="submit" name="valider">Ajouter un nouveau produit</button> -->
     </form>
 
     <div class="container">
         <div class="row">
+            
             <?php foreach($produits as $produit): ?>
-                <a href="../article.php?idProduit=<?= $produit -> id ?>">
-                    <div class="product">
+                <a href="article.php?idProduit=<?= $produit -> id ?>">
+                    <div class="product <?= $produit -> category ?>">
                         <div class="image">
                             <img src="<?= $produit -> image ?>" alt="Image produit">
                         </div>
                         <div class="infos">
                             <p class="pName"><?= $produit -> titre ?></p>
                             <p class="pPrice"><?= $produit -> prix ?></p>
+                            <p class="pId"><?= $produit -> id ?></p>
                         </div>
                     </div>
                 </a>

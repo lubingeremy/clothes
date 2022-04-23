@@ -11,13 +11,15 @@
 <body>
     <h1>CLOTHES</h1>
     <?php if(is_connected()): ?>
-        <h2><?= $_SESSION['firstName']; ?></h2>
-        <h2><?= $_SESSION['lastName']; ?></h2>
+        <div id="name">
+            <h2><?= $_SESSION['firstName']; ?></h2>
+            <h2><?= $_SESSION['lastName']; ?></h2>
+        </div>
     <?php endif ?>
     <?php if($_SESSION['op']):?>
         <a href="admin/index.php" class="btnMenu">Admin</a>
     <?php endif ?>
-    <a href="index.php">Acceuil</a>
+    <a href="index.php" class="btnMenu">Accueil</a>
     <?php if(!is_connected()): ?>
         <a href="identification/register.php" class="btnMenu">Inscription</a>
         <a href="identification/login.php" class="btnMenu">Connexion</a>

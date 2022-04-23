@@ -1,7 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-size: max(2vw, 2vh);
+    font-size: 5vw;
+    /* font-size: max(2vw, 2vh); */
     font-family: 'Montserrat', sans-serif;
 
     -moz-box-sizing: border-box; 
@@ -9,56 +10,140 @@
     box-sizing: border-box; 
     /* background-color: red; */
 }
-
-
+h1{
+    font-size: 0.7rem;
+    text-align: center; 
+    display: block;
+}
+h2{
+    font-size: 0.5rem;
+    display: inline;
+    text-align: center; 
+}
+label{
+    font-size: 0.3rem;
+    display: inline-block;
+}
+input{
+    width: 2rem;
+    height: 0.5rem;
+    display: inline-block;
+    font-size: 0.2rem;
+}
+select{
+    width: 2rem;
+    height: 0.5rem;
+    display: inline-block;
+    font-size: 0.2rem;
+}
+input[type="submit"]{
+    width: 2rem;
+}
+#name{
+    display: block;
+    text-align: center;
+}
 a{
     text-decoration: none;
     color: black;
+    font-size: 0.5rem;
+}
+.btnMenu {
+    display: inline-block;
+
 }
 p{
-    font-size: 0.7rem;
+    font-size: 0.4rem;
 }
 .pId{
     color: red;
     font-weight: 500;
 }
-
-/* @media (max-width: 660px){
-    *{
-        font-size: 2vh;
-    }
-} */
-
+.infos p{
+    color: white;
+    /* background-color:black; */
+    padding: 0 0.1rem;
+}
 .container{
     width: 100%;
     height: auto;
-
-    padding: 4vw;
+    padding: 0.5rem 0;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    /* background-color: purple; */
 }
 .row{
+    width: 100%;
+    max-width: 750px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 10px;
+    justify-content: center;
+    /* align-items: center; */
+    /* padding: 0 1rem; */
     /* background-color: yellow; */
 }
 .product{
-    width: 10rem;
-    /* width: 31%; */
-    height: 15rem;
-    /* background-color: rebeccapurple; */
-
-    margin: 0 0.5rem 0.5rem 0.5rem;
+    width: 9.3rem;
+    /* max-width: 230px; */
+    max-width: 250px;
+    height: 16rem;
+    max-height: 430px;
+    /* height: 15rem; */
+    /* background-color: grey; */
+    
+    /* margin: 0 0 0.5rem 0; */
     /* margin: 0 1% 0.5rem 1%; */
 }
 .image{
     height: 80%;
     width: 100%;
     overflow: hidden;
-    display: flex;
 
-    align-items: center;
-    justify-content: center;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 img{
-    width: 110%;
+    width: 100%;
+}
+
+
+.casual{
+    background-color: blue;
+}
+.streetwear{
+    background-color: red;
+}
+.glamour{
+    background-color: green;
+}
+.boheme{
+    background-color: grey;
+}
+
+
+@media (min-width: 768px){
+    *{
+        font-size: 7vw;
+    }
+    p{
+        font-size: 0.2rem;
+    }
+    .row{
+        width: 100%;
+        max-width: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .product{
+        width: 9.3rem;
+        /* max-width: 230px; */
+        max-width: 300px;
+        height: 16rem;
+        max-height: 510px;
+    }
 }

@@ -2,7 +2,9 @@
     require_once("config/functions.php");
     require_once("functions/auth.php");
     require_once("config/cookies.php");
+
     require("header.php");
+    
     user_connected();
     if($_SESSION['reload']){
         $produits = (array)afficherListeProduits();
@@ -43,7 +45,7 @@
         <div class="row">
             <?php foreach($produits as $produit): ?>
                 <a href="article.php?idProduit=<?= $produit -> id ?>">
-                    <div class="product">
+                    <div class="product <?= $produit -> category ?>">
                         <div class="image">
                             <img src="<?= $produit -> image ?>" alt="Image produit">
                         </div>
