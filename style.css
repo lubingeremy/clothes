@@ -21,23 +21,29 @@ h2{
     text-align: center; 
 }
 label{
-    font-size: 0.3rem;
+    font-size: 0.35rem;
     display: inline-block;
 }
 input{
+    min-width: 200px;
     width: 2rem;
+    min-height: 50px;
     height: 0.5rem;
     display: inline-block;
-    font-size: 0.2rem;
+    font-size: 0.35rem;
 }
 select{
+    min-width: 200px;
     width: 2rem;
+    min-height: 50px;
     height: 0.5rem;
     display: inline-block;
-    font-size: 0.2rem;
+    font-size: 0.35rem;
 }
 input[type="submit"]{
+    min-width: 200px;
     width: 2rem;
+    min-height: 50px;
 }
 #name{
     display: block;
@@ -121,6 +127,11 @@ img{
 }
 .boheme{
     background-color: grey;
+}
+
+#info{
+    color: white;
+    width: 4rem;
 }
 
 

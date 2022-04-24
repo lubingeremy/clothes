@@ -8,6 +8,34 @@
         exit();
     }
     $produits = (array)afficherListeProduits();
+
+    if(isset($_POST['valider']))
+    {
+        if(isset($_POST['image']) AND isset($_POST['nom']) AND isset($_POST['prix']) AND isset($_POST['category']))
+        {
+        if(!empty($_POST['image']) AND !empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['category']))
+            {
+                $image = htmlspecialchars(strip_tags($_POST['image']));
+                $nom = htmlspecialchars(strip_tags($_POST['nom']));
+                $prix = htmlspecialchars(strip_tags($_POST['prix']));
+                $category = htmlspecialchars(strip_tags($_POST['category']));
+            
+            try 
+            {
+                // echo "OK?";
+                ajouterProduit($image, $nom, $prix, $category);
+                header("Refresh:0");
+                exit();
+            } 
+            catch (Exception $e) 
+            {
+                $e->getMessage();
+            }
+
+            }
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +60,12 @@
 
         <label for="category" class="form-label">Style</label>
         <select name="category" id="category" required>
-            <option value="boheme">Bohème</option>
-            <option value="casual">Casual</option>
             <option value="glamour">Glamour</option>
+            <option value="casual">Casual</option>
             <option value="streetwear">Streetwear</option>
+            <option value="boheme">Bohème</option>
         </select>
-        <input type="submit" value="Ajouter">
+        <input name="valider" type="submit" value="Ajouter">
         <!-- <button type="submit" name="valider">Ajouter un nouveau produit</button> -->
     </form>
 
@@ -60,36 +88,5 @@
             <?php endforeach; ?>
         </div>
     </div>
-</body>
-</html>
-
-    <?php
-
-    if(isset($_POST['valider']))
-    {
-        if(isset($_POST['image']) AND isset($_POST['nom']) AND isset($_POST['prix']) AND isset($_POST['category']))
-        {
-        if(!empty($_POST['image']) AND !empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['category']))
-            {
-                $image = htmlspecialchars(strip_tags($_POST['image']));
-                $nom = htmlspecialchars(strip_tags($_POST['nom']));
-                $prix = htmlspecialchars(strip_tags($_POST['prix']));
-                $category = htmlspecialchars(strip_tags($_POST['category']));
-            
-            try 
-            {
-                ajouterProduit($image, $nom, $prix, $category);
-            } 
-            catch (Exception $e) 
-            {
-                $e->getMessage();
-            }
-
-            }
-        }
-    }
-
-    ?>
-
 </body>
 </html>

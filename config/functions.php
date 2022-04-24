@@ -1,7 +1,11 @@
 <?php
     function ajouterProduit($image, $titre, $prix, $category){
         if(require("connexion.php")){
-            $req = $pdo->exec("INSERT INTO products (image, titre, prix, category) VALUES ('$image', '$titre', '$prix', '$category')");
+            try{
+                $req = $pdo->exec("INSERT INTO products (image, titre, prix, category) VALUES ('$image', '$titre', '$prix', '$category')");
+            } catch (Exception $e) {
+                $e -> getMessage();
+            }
         }
     }
     function afficherListeProduits(){
