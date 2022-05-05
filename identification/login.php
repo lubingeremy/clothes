@@ -39,6 +39,7 @@
         <!-- <button type="submit">Se connecter</button> -->
         <input type="submit" value="Se connecter">
     </form>
-    <a href="../admin/login.php">Admin</a>
+    <!-- <a href="../admin/login.php">Admin</a> -->
+    <a href="register.php">S'inscrire</a>
 </body>
 </html>

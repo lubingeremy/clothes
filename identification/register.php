@@ -32,6 +32,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOTHES | Inscription</title>
+    <link rel="stylesheet" href="../style.css">
+
 </head>
 <body>
     <h1>Inscription</h1>
@@ -48,7 +50,7 @@
             <label for="gender">Genre</label>
             <select name="gender" id="gender" required>
                 <option value="" selected disabled hidden>Choisir</option>
-                <option value="man" selected>Homme</option>
+                <option value="man">Homme</option>
                 <option value="woman">Femme</option>
                 <option value="nb">NB</option>
             </select>
@@ -56,15 +58,15 @@
             <label for="age">Âge</label>
             <input type="number" name="age" id="age" step="1" min="13" required value="25">
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" id="email" name="email" required value="adresse@mail.com"> 
+            <label for="email">Email</label>
+            <input type="text" placeholder="adresse@mail.com" id="email" name="email" required value="adresse@mail.com"> 
 
-            <label for="password"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Enter Password" id="password" name="password" required value="placehojo">
+            <label for="password">Mot de passe</label>
+            <input type="password" placeholder="Password" id="password" name="password" required value="newpass">
             
-            <p>En créant un compte vous acceptez nos <a href="#" style="color:dodgerblue">Termes et Conditions d'utilisations</a>.</p>
+            <p>En créant un compte vous acceptez nos Termes et Conditions d'utilisations.</p>
 
-            <button type="submit">S'inscrire</button>
+            <input type="submit" name="submit" value="S'inscrire">
         </form>
 </body>
 </html>
