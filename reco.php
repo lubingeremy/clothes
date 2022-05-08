@@ -1,8 +1,8 @@
 <?php
     require_once("config/functions.php");
-    require_once("functions/auth.php");
+    require_once("config/auth.php");
     require_once("config/cookies.php");
-    require_once("algo.php");
+    require_once("config/algo.php");
 
     require("header.php");
     
@@ -15,7 +15,6 @@
     // } else{
     //     $produits = $_SESSION['recoList'];
     // }
-    
     // if(isset($_POST['reloadList'])){
     //     $_SESSION['reload'] = True;
     //     header('Location: index.php');

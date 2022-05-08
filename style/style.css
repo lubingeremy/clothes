@@ -165,3 +165,8 @@ img{
         max-height: 510px;
     }
 }
+
+.pCart{
+	cursor: pointer;
+	background-color:blue;
+}
