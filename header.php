@@ -1,7 +1,6 @@
 <?php
     require_once("config/auth.php");
 ?>
-<!DOCTYPE html>
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
@@ -10,8 +9,6 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;900&display=swap" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Permanent+Marker&display=swap" rel="stylesheet">
 
 </head>
@@ -27,7 +24,7 @@
         <a href="indexAdmin.php" class="btnMenu">Admin</a>
     <?php endif ?>
     <a href="index.php" class="btnMenu">Accueil</a>
-    <a href="reco.php">Recommandations</a>
+    <a href="reco.php" class="btnMenu">Recommandations</a>
     <?php if(!is_connected()): ?>
         <a href="register.php" class="btnMenu">Inscription</a>
         <a href="login.php" class="btnMenu">Connexion</a>

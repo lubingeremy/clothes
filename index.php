@@ -1,9 +1,9 @@
 <?php
+    require("header.php");
     require_once("config/functions.php");
     require_once("config/auth.php");
     require_once("config/cookies.php");
 
-    require("header.php");
     
     user_connected();
     if($_SESSION['reload']){
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </a>
-                    <p class="pCart">Cart</p>
+                    <!-- <p class="pCart">Cart</p> -->
                 <?php endforeach; ?>
             </div>
         </div>

@@ -8,23 +8,20 @@
     -moz-box-sizing: border-box; 
     -webkit-box-sizing: border-box; 
     box-sizing: border-box; 
-    /* background-color: red; */
 }
 h1{
-    font-size: 0.7rem;
-    text-align: center; 
-    display: block;
-}
-h2{
     font-size: 0.5rem;
     display: inline;
-    text-align: center; 
+    /* text-align: ;  */
+}
+h2{
+    font-size: 0.3rem;
+    display: inline;
+    /* text-align: center;  */
 }
 label{
     font-size: 0.35rem;
-    display: inline-block;
-    /* background-color:red; */
-
+    display: inline;
 }
 input{
     min-width: 200px;
@@ -53,8 +50,8 @@ input{
 
 }
 #name{
-    display: block;
-    text-align: center;
+    display: inline;
+    /* text-align: center; */
 }
 a{
     text-decoration: none;
@@ -62,8 +59,8 @@ a{
     font-size: 0.5rem;
 }
 .btnMenu {
-    display: inline-block;
-
+    font-size: 0.3rem;
+    /* display: inline-block; */
 }
 p{
     font-size: 0.4rem;
@@ -144,7 +141,7 @@ img{
 
 @media (min-width: 768px){
     *{
-        font-size: 7vw;
+        font-size: 5vw;
     }
     p{
         font-size: 0.2rem;
