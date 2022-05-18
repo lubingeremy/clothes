@@ -6,6 +6,7 @@
     unset($_SESSION['lastName']);
     unset($_SESSION['firstName']);
     unset($_SESSION['reload']);
+    unset($_SESSION['cart']);
 
     setcookie('glamour', null, time() - 3600, "/");
     setcookie('streetwear', null, time() - 3600, "/");

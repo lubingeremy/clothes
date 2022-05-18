@@ -69,25 +69,27 @@
 				$_SESSION['cart']['price'] = array();
 		}
 	}
-	function addToCart($title, $id, $quantity, $price){
-    createCart();
-    $position_produit = array_search($id,  $_SESSION['cart']['id']);
-    if($position_produit !== false)
-    {
-        $_SESSION['cart']['quantity'][$position_produit] += $quantity ;
-    }
-    else
-    {
-			$_SESSION['cart']['title'][] = $title;
-			$_SESSION['cart']['id'][] = $id;
-			$_SESSION['cart']['quantity'][] = $quantity;
-			$_SESSION['cart']['price'][] = $price;
-    }
+    function addToCart($productId, $price){
+        createCart();
+        $position_produit = array_search($productId,  $_SESSION['cart']['id']);
+        if($position_produit !== false)
+        {
+            $_SESSION['cart']['quantity'][$position_produit] += 1 ;
+        }
+        else
+        {
+            // $_SESSION['cart']['title'][] = $product -> title;
+            $_SESSION['cart']['id'][] = $productId;
+            $_SESSION['cart']['quantity'][] = 1;
+            $_SESSION['cart']['price'][] = $price;
+        }
+        header('Location: ../cart.php');
+        exit();
 	}
 	function totalPrice(){
 		$total=0;
 		for($i = 0; $i < count($_SESSION['cart']['id']); $i++){
-			$total += $_SESSION['cart']['quantity'][$i] * $_SESSION['cart']['prix'][$i];
+			$total += $_SESSION['cart']['quantity'][$i] * $_SESSION['cart']['price'][$i];
 		}
 		return round($total,2); 
 	}
@@ -95,11 +97,43 @@
 		$productIndex = array_search($id_product,  $_SESSION['cart']['id']);
 		if ($productIndex !== false)
 		{
-			array_splice($_SESSION['cart']['title'], $productIndex, 1);
-			array_splice($_SESSION['cart']['id'], $productIndex, 1);
-			array_splice($_SESSION['cart']['quantity'], $productIndex, 1);
-			array_splice($_SESSION['cart']['price'], $productIndex, 1);
+            array_splice($_SESSION['cart']['title'], $productIndex, 1);
+            array_splice($_SESSION['cart']['id'], $productIndex, 1);
+            array_splice($_SESSION['cart']['quantity'], $productIndex, 1);
+            array_splice($_SESSION['cart']['price'], $productIndex, 1);
 		}
 	}
-
+    // function addToCart($product){
+        //     createCart();
+        //     $position_produit = array_search($product -> id,  $_SESSION['cart']['id']);
+        //     if($position_produit !== false)
+        //     {
+        //         $_SESSION['cart']['quantity'][$position_produit] += 1 ;
+        //     }
+        //     else
+        //     {
+        //             $_SESSION['cart']['title'][] = $product -> title;
+        //             $_SESSION['cart']['id'][] = $product -> id;
+        //             $_SESSION['cart']['quantity'][] = 1;
+        //             $_SESSION['cart']['price'][] = $product -> price;
+        //     }
+        // }
+        // function addToCart($title, $id, $quantity, $price){
+      //   createCart();
+      //   $position_produit = array_search($id,  $_SESSION['cart']['id']);
+      //   if($position_produit !== false)
+      //   {
+      //       $_SESSION['cart']['quantity'][$position_produit] += $quantity ;
+      //   }
+      //   else
+      //   {
+        // 		$_SESSION['cart']['title'][] = $title;
+        // 		$_SESSION['cart']['id'][] = $id;
+        // 		$_SESSION['cart']['quantity'][] = $quantity;
+        // 		$_SESSION['cart']['price'][] = $price;
+      //   }
+        // }
 ?>
+
+
+
