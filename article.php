@@ -1,5 +1,6 @@
 <?php
 	require_once("config/functions.php");
+	require_once("config/wishlistFunctions.php");
 	if(!empty($_GET['idProduit'])){
 		$produit = afficherPP($_GET['idProduit']);
 	}
@@ -23,7 +24,8 @@
 			<!-- <p id="compteur">COMPTEUR</p> -->
 			<h2><?=$prd -> titre?></h2>
 			<form method="POST">
-				<input name="valider" type="submit" value="Ajouter">
+				<input name="panier" type="submit" value="Ajouter au panier">
+				<input name="wishlist" type="submit" value="Ajouter aux favoris">
 			</form>
 			<p>Catégorie: </p>
 			<p id="category"><?= $prd -> category?></p>
@@ -42,7 +44,7 @@
 
 <?php 
 
-if(isset($_POST['valider'])){
+if(isset($_POST['panier'])){
 	try {
 		// var_dump($produit);
 		// var_dump("wesh");
@@ -53,4 +55,16 @@ if(isset($_POST['valider'])){
 	{
 		$e->getMessage();
 	}
-} 
+}
+if(isset($_POST['wishlist'])){
+	try {
+		// var_dump($produit);
+		// var_dump("wesh");
+		// echo "wesh";
+		addToWishlist($produit[0] -> id, $produit[0] -> prix);
+		// addToCart($prd -> titre, $prd -> id, 1, $prd -> prix);
+	} catch (Exception $e) 
+	{
+		$e->getMessage();
+	}
+}

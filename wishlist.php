@@ -1,12 +1,10 @@
 <?php
   require_once("header.php");
   require_once("config/functions.php");
-  require_once("config/cartFunctions.php");
+  require_once("config/wishlistFunctions.php");
   user_connected();
-  createCart();
-  $produits = requestProducts($_SESSION['cart']['id']);
-  // var_dump($_SESSION['cart']);
-  // var_dump($produits);
+  createWishlist();
+  $produits = requestProducts($_SESSION['wishlist']['id']);
 ?>
 
 <html>
@@ -27,7 +25,7 @@
               </a>
             </td>
             <td class="case">
-              <p><?= $_SESSION['cart']['quantity'][$index] ?></p>
+              <p><?= $_SESSION['wishlist']['quantity'][$index] ?></p>
             </td>
             <td class="case">
               <form method="POST">
@@ -40,11 +38,9 @@
           </tr>
           <?php endforeach; ?>
           <tr>
-            <td></td>
-            <td>Total: <?= totalPrice();?></td>
-              <td>
-                <button>Payer commande</button>
-              </td>
+            <td>
+              <button>Tout ajouter au panier</button>
+            </td>
             </tr>
           </table>
     </div>
@@ -55,13 +51,13 @@
 <?php 
   if(isset($_POST['remove'])){
     try {
-      if($_SESSION['cart']['quantity'][$_POST['index']] <= 1){
-        removeProductCart($_SESSION['cart']['id'][$_POST['index']]);
+      if($_SESSION['wishlist']['quantity'][$_POST['index']] <= 1){
+        removeProductCart($_SESSION['wishlist']['id'][$_POST['index']]);
       } else{
-        $_SESSION['cart']['quantity'][$_POST['index']] -= 1;
+        $_SESSION['wishlist']['quantity'][$_POST['index']] -= 1;
       }
       unset($_POST['sub']);
-      header('Location: ../cart.php');
+      header('Location: ../wishlist.php');
       exit();
     } catch (Exception $e) 
     {
@@ -70,9 +66,9 @@
   } 
   if(isset($_POST['add'])){
     try {
-        $_SESSION['cart']['quantity'][$_POST['index']] += 1;
+        $_SESSION['wishlist']['quantity'][$_POST['index']] += 1;
       unset($_POST['add']);
-      header('Location: ../cart.php');
+      header('Location: ../wishlist.php');
       exit();
     } catch (Exception $e) 
     {

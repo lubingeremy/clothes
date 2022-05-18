@@ -30,6 +30,7 @@
         <a href="login.php" class="btnMenu">Connexion</a>
     <?php  else: ?>
         <a href="cart.php" class="btnMenu">Panier</a>
+        <a href="wishlist.php" class="btnMenu">Favoris</a>
         <a href="logout.php" class="btnMenu">Se déconnecter</a>
     <?php endif ?>
 </body>
