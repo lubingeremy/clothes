@@ -61,7 +61,7 @@
 
         <label for="category" class="form-label">Style</label>
         <select name="category" id="category" required>
-            <option value="glamour">Glamour</option>
+            <option value="chic">Glamour</option>
             <option value="casual">Casual</option>
             <option value="streetwear">Streetwear</option>
             <option value="boheme">Bohème</option>

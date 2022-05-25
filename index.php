@@ -6,30 +6,32 @@
 
     
     user_connected();
-    if($_SESSION['reload']){
-        $produits = (array)afficherListeProduits();
-        shuffle($produits);
-        $_SESSION['homeList'] = $produits;
-        $_SESSION['reload'] = False;
-    } else{
-        $produits = $_SESSION['homeList'];
-    }
+    $produits = (array)afficherListeProduits();
+    shuffle($produits);
+    // if($_SESSION['reload']){
+    //     $produits = (array)afficherListeProduits();
+    //     shuffle($produits);
+    //     $_SESSION['homeList'] = $produits;
+    //     $_SESSION['reload'] = False;
+    // } else{
+    //     $produits = $_SESSION['homeList'];
+    // }
     
-    if(isset($_POST['reloadList'])){
-        $_SESSION['reload'] = True;
-        header('Location: index.php');
-        exit();
-    }
-    updateCookies($_COOKIE['casual'], $_COOKIE['boheme'], $_COOKIE['streetwear'], $_COOKIE['glamour'], $_SESSION['id']);
+    // if(isset($_POST['reloadList'])){
+    //     $_SESSION['reload'] = True;
+    //     header('Location: index.php');
+    //     exit();
+    // }
+    updateCookies($_COOKIE['casual'], $_COOKIE['boheme'], $_COOKIE['streetwear'], $_COOKIE['chic'], $_SESSION['id']);
 ?>
 <html>
     <head>
         <title>CLOTHES</title>    
     </head>
     <body>
-        <form action="" method="post">
+        <!-- <form action="" method="post">
             <input type="submit" id="reloadList" name="reloadList" value="Reload article list">
-        </form>
+        </form> -->
 
         <div class="container">
             <div class="row">
@@ -37,7 +39,7 @@
                     <a href="article.php?idProduit=<?= $produit -> id ?>">
                         <div class="product <?= $produit -> category ?>">
                             <div class="image">
-                                <img src="<?= $produit -> image ?>" alt="Image produit">
+                                <img id="imgProd" src="<?= $produit -> image ?>" alt="Image produit">
                             </div>
                             <div class="infos">
                                 <p class="pName"><?= $produit -> titre ?></p>

@@ -6,19 +6,20 @@ TimeMe.initialize({
 
 
 let timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-const step = 5;
+const step = 10;
 let palier = step;
 
 
 
 const category = document.getElementById('category').innerText;
 
-let compteur = document.getElementById('compteur');
+// let compteur = document.getElementById('compteur');
 var cookies = []
 
 var cookiesList = document.cookie.split('; ');
 let i;
 
+// Fecth cookies
 for (i=0;i<=4;i++){
     if (cookiesList[i].split("=")[0] != "PHPSESSID" && cookiesList[i].split("=")[0] != "__cfruid"){
         if (cookiesList[i].split("=")[0] === category){
@@ -31,6 +32,7 @@ for (i=0;i<=4;i++){
     }
 }
 
+// Fetch points of current article's category
 function getPoints(){
     for (let i = 0; i < cookies.length; i++){
         if (category == cookies[i][0]){
@@ -40,7 +42,6 @@ function getPoints(){
 }
 
 var points = getPoints();
-
 
 /////////////////////////////////////////////////////////////
 ///////////////Compute cookies point/////////////////////////
@@ -62,38 +63,44 @@ function removePoint(){
     }
     if (cookies[key][1] <= 0){
         return "Minimum point reached"
+    } else{
+        cookies[key][1] -= 1;
+        updatePoints(cookies[key]);
+        console.log(cookies);
+        return true;
     }
-    cookies[key][1] -= 1;
-    updatePoints(cookies[key]);
-    console.log(cookies);
-    return true;
+}
+
+function addPoint(){
+    if(uniqueCookie[1] < 12){
+        if (removePoint()){
+            uniqueCookie[1] += 1;
+            cookie = category + "=" + uniqueCookie[1];
+            document.cookie = cookie + "; 0; path=/";
+            // console.log("update " + uniqueCookie[0] +uniqueCookie[1])
+            return(true)
+        }
+    }
+    else{
+        // console.log("Maximum points reached")
+        return(false)
+    }
 }
 
 function countPoints(){
     // console.log("countPoints")
     let timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-    compteur.innerText = timeSpentOnPage;
+    // compteur.innerText = timeSpentOnPage;
     // console.log(typeof(timeSpentOnPage));
     if (timeSpentOnPage >= palier){
         palier += step;
-        if(uniqueCookie[1] < 12){
-            if (removePoint()){
-                // oldValue = uniqueCookie[1];
-                // points = points + 1;
-                uniqueCookie[1] += 1;
-                // cookies[category] = points
-                cookie = category + "=" + uniqueCookie[1];
-
-                document.cookie = cookie + "; 0; path=/";
-
-                console.log("test " + uniqueCookie[1])
-            }
-        }
-        else{
-            console.log("Maximum points reached")
+        addP = addPoint();
+        if(!addP){
             clearInterval(lp);
         }
     }
 }
 
-let lp = setInterval(countPoints,1000)
+// addPoint();
+
+// let lp = setInterval(countPoints,1000)

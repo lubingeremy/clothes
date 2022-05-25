@@ -1,14 +1,11 @@
 <?php
 	require_once("config/functions.php");
+	require_once("config/algo.php");
 	require_once("config/wishlistFunctions.php");
+	require_once("config/cartFunctions.php");
 	if(!empty($_GET['idProduit'])){
 		$produit = afficherPP($_GET['idProduit']);
 	}
-	// var_dump($produit[0]);
-	// var_dump($produit);
-	
-
-
 
 	require("header.php");    
 
@@ -21,7 +18,6 @@
 			<title>CLOTHES | <?=$prd -> titre?></title>
 		</head>
 		<body>
-			<!-- <p id="compteur">COMPTEUR</p> -->
 			<h2><?=$prd -> titre?></h2>
 			<form method="POST">
 				<input name="panier" type="submit" value="Ajouter au panier">
@@ -40,29 +36,24 @@
 		</html>
 	<?php endforeach; ?>
 
-
-
 <?php 
 
 if(isset($_POST['panier'])){
+	unset($_POST['panier']);
 	try {
-		// var_dump($produit);
-		// var_dump("wesh");
-		// echo "wesh";
+		addPoints($produit[0] -> category, 2);
 		addToCart($produit[0] -> id, $produit[0] -> prix);
-		// addToCart($prd -> titre, $prd -> id, 1, $prd -> prix);
 	} catch (Exception $e) 
 	{
 		$e->getMessage();
 	}
 }
 if(isset($_POST['wishlist'])){
-	try {
-		// var_dump($produit);
-		// var_dump("wesh");
-		// echo "wesh";
+	unset($_POST['wishlist']);
+	try {	
+		addPoints($produit[0] -> category, 1);
 		addToWishlist($produit[0] -> id, $produit[0] -> prix);
-		// addToCart($prd -> titre, $prd -> id, 1, $prd -> prix);
+		// UNSET POUR RETRAIT WISHLIST
 	} catch (Exception $e) 
 	{
 		$e->getMessage();

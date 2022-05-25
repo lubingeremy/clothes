@@ -20,7 +20,7 @@
     //     header('Location: index.php');
     //     exit();
     // }
-    updateCookies($_COOKIE['casual'], $_COOKIE['boheme'], $_COOKIE['streetwear'], $_COOKIE['glamour'], $_SESSION['id']);
+    updateCookies($_COOKIE['casual'], $_COOKIE['boheme'], $_COOKIE['streetwear'], $_COOKIE['chic'], $_SESSION['id']);
     $produits = (array)assembleProductsList();
     $percentage = percentage();
     $nombre = ratio();
@@ -34,15 +34,15 @@
     </head>
     <body>
         <h1>Recommandations</h1>
-        <div id="info">
-            <p class="streetwear">Streetwear: <?= $percentage[0]?>, soit <?= $nombre[0]?></p>
-            <p class="casual">Casual: <?= $percentage[1]?> soit <?= $nombre[1]?></p>
-            <p class="glamour">Glamour: <?= $percentage[2]?> soit <?= $nombre[2]?></p>
-            <p class="boheme">Bohème: <?= $percentage[3]?> soit <?= $nombre[3]?></p>
+        <div id="ratio">
+            <p class="streetwear">Streetwear: <?= $percentage[0]?>, soit <?= $nombre[0]?> <?= $_COOKIE['streetwear']?></p>
+            <p class="casual">Casual: <?= $percentage[1]?> soit <?= $nombre[1]?> <?= $_COOKIE['casual']?></p>
+            <p class="chic">Chic: <?= $percentage[2]?> soit <?= $nombre[2]?> <?= $_COOKIE['chic']?></p>
+            <p class="boheme">Bohème: <?= $percentage[3]?> soit <?= $nombre[3]?> <?= $_COOKIE['boheme']?></p>
         </div>
-        <form action="" method="post">
+        <!-- <form action="" method="post">
             <input type="submit" id="reloadList" name="reloadList" value="Reload article list">
-        </form>
+        </form> -->
 
         <div class="container">
             <div class="row">

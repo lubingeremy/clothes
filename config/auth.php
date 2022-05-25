@@ -17,7 +17,7 @@
     function register($lastName,$name,$gender,$age,$email,$password){
         if(require("connexion.php")){
             $pass = password_hash($password, PASSWORD_DEFAULT);
-            $pdo->exec("INSERT INTO users (lastName, firstName, gender, age, email, password, casual, boheme, streetwear, glamour) VALUES ('$lastName','$name', '$gender','$age', '$email', '$pass',3,3,3,3)");
+            $pdo->exec("INSERT INTO users (lastName, firstName, gender, age, email, password, casual, boheme, streetwear, chic) VALUES ('$lastName','$name', '$gender','$age', '$email', '$pass',3,3,3,3)");
         }
     }
 
@@ -39,13 +39,13 @@
                     $_SESSION['firstName'] = $user -> firstName;
                     $_SESSION['reload'] = True;
 
-                    setcookie('glamour', null, time() - 3600, "/");
+                    setcookie('chic', null, time() - 3600, "/");
                     setcookie('streetwear', null, time() - 3600, "/");
                     setcookie('boheme', null, time() - 3600, "/");
                     setcookie('casual', null, time() - 3600, "/");
 
                     setcookie('boheme',$user -> boheme, 0, '/');
-                    setcookie('glamour',$user -> glamour, 0, '/');
+                    setcookie('chic',$user -> chic, 0, '/');
                     setcookie('streetwear',$user -> streetwear, 0, '/');
                     setcookie('casual',$user -> casual, 0, '/');
 

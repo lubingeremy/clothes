@@ -3,9 +3,7 @@
 		if(!isset($_SESSION['wishlist']))
 		{
       $_SESSION['wishlist'] = array();
-      $_SESSION['wishlist']['title'] = array();
       $_SESSION['wishlist']['id'] = array();
-      $_SESSION['wishlist']['quantity'] = array();
       $_SESSION['wishlist']['price'] = array();
 		}
 	}
@@ -14,13 +12,11 @@
     $position_produit = array_search($productId,  $_SESSION['wishlist']['id']);
     if($position_produit !== false)
     {
-      $_SESSION['wishlist']['quantity'][$position_produit] += 1 ;
+      $result = "Ce produit existe déjà dans votre panier";
     }
     else
     {
-      // $_SESSION['wishlist']['title'][] = $product -> title;
       $_SESSION['wishlist']['id'][] = $productId;
-      $_SESSION['wishlist']['quantity'][] = 1;
       $_SESSION['wishlist']['price'][] = $price;
     }
     header('Location: ../wishlist.php');
@@ -30,13 +26,13 @@
 		$productIndex = array_search($id_product,  $_SESSION['wishlist']['id']);
 		if ($productIndex !== false)
 		{
-      array_splice($_SESSION['wishlist']['title'], $productIndex, 1);
+      // unset($_SESSION['wishlist']['id'][$productIndex]);
+      // unset($_SESSION['wishlist']['price'][$productIndex]);
       array_splice($_SESSION['wishlist']['id'], $productIndex, 1);
-      array_splice($_SESSION['wishlist']['quantity'], $productIndex, 1);
       array_splice($_SESSION['wishlist']['price'], $productIndex, 1);
 		}
 	}
-  function requestProducts($productsId){
+  function requestWishlistProducts($productsId){
     $products = [];
     if(require("connexion.php")){
       for ($i = 0; $i < count($productsId); $i++){

@@ -8,12 +8,12 @@
     unset($_SESSION['reload']);
     unset($_SESSION['cart']);
 
-    setcookie('glamour', null, time() - 3600, "/");
+    setcookie('chic', null, time() - 3600, "/");
     setcookie('streetwear', null, time() - 3600, "/");
     setcookie('boheme', null, time() - 3600, "/");
     setcookie('casual', null, time() - 3600, "/");
 
-    header('Location: index.php');
+    header('Location: identification.php');
     exit()
 ?>
 

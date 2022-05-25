@@ -4,7 +4,7 @@
   require_once("config/cartFunctions.php");
   user_connected();
   createCart();
-  $produits = requestProducts($_SESSION['cart']['id']);
+  $produits = requestCartProducts($_SESSION['cart']['id']);
   // var_dump($_SESSION['cart']);
   // var_dump($produits);
 ?>
@@ -54,13 +54,13 @@
 
 <?php 
   if(isset($_POST['remove'])){
+    unset($_POST['sub']);
     try {
       if($_SESSION['cart']['quantity'][$_POST['index']] <= 1){
         removeProductCart($_SESSION['cart']['id'][$_POST['index']]);
       } else{
         $_SESSION['cart']['quantity'][$_POST['index']] -= 1;
       }
-      unset($_POST['sub']);
       header('Location: ../cart.php');
       exit();
     } catch (Exception $e) 
@@ -69,9 +69,9 @@
     }
   } 
   if(isset($_POST['add'])){
+    unset($_POST['add']);
     try {
-        $_SESSION['cart']['quantity'][$_POST['index']] += 1;
-      unset($_POST['add']);
+      $_SESSION['cart']['quantity'][$_POST['index']] += 1;
       header('Location: ../cart.php');
       exit();
     } catch (Exception $e) 
