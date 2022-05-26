@@ -1,13 +1,11 @@
 <?php
     require_once('config/auth.php');
     $error = null;
-    
     if(is_connected()){
         header('Location: index.php');
         exit();
     }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,10 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOTHES | Inscription</title>
     <link rel="stylesheet" href="style/registerStyle.css">
-
 </head>
 <body>
-	<!-- <div id="forms"> -->
 		<form id="register" action="" method="POST">
 			<h2>Inscription</h2>
 			<label for="lastName">Nom</label>
@@ -56,10 +52,8 @@
 
 			<label for="logPassword">Mot de passe</label>
 			<input id="logPassword" type="password" name="logPassword" value="mdpali">
-			<!-- <button type="submit">Se connecter</button> -->
 			<input type="submit" name="logSubmit" value="Se connecter">
 		</form>
-	<!-- </div> -->
 </body>
 </html>
 
@@ -75,13 +69,11 @@
 				exit();
 			} catch (Exception $e){
 				$error = TRUE;
-				var_dump($e);
 			}
 		}
 	}
 	if(isset($_POST['logSubmit'])){
 		unset($_POST['logSubmit']);
-		// require_once 'config' . DIRECTORY_SEPARATOR . 'auth.php';
 		$error = null;
 		if(!empty($_POST['logEmail']) && !empty($_POST['logPassword'])){
 				$result = login($_POST['logEmail'],$_POST['logPassword']);
@@ -89,13 +81,6 @@
 					echo "<script>alert(\"Identifiant ou mot de passe incorect\")</script>";
 				}
 		}
-		// IDENTIFIANT INCORRECT A IMPLEMENTER
-		// if(!empty($_POST['email']) && !empty($_POST['password'])){
-		// 		if(!login($_POST['email'],$_POST['password'])){
-		// 				$error = "Mot de passe incorrect";
-		// 				var_dump($error);
-		// 		}
-		// }
 	}
 
 

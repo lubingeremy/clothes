@@ -1,6 +1,7 @@
 <?php
     require_once("config/auth.php");
 ?>
+
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
@@ -24,8 +25,8 @@
         <a href="indexAdmin.php" class="btnMenu">Admin</a>
     <?php endif ?>
     <?php if(!isset($_SESSION['connected'])):?>
-      <a href="identification.php" class="btnMenu">Connexion/Inscription</a>
-      <?php  else: ?>
+        <a href="identification.php" class="btnMenu">Connexion/Inscription</a>
+    <?php  else: ?>
         <a href="reco.php" class="btnMenu">Recommandations</a>
         <a href="cart.php" class="btnMenu">Panier</a>
         <a href="wishlist.php" class="btnMenu">Favoris</a>

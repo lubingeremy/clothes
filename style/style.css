@@ -3,7 +3,6 @@
     padding: 0;
     font-size: 1.5vw;
     font-family: 'Montserrat', sans-serif;
-    /* font-family: 'Kaushan Script', cursive; */
 }
 .icons{
     height: 1.2rem;
@@ -18,7 +17,6 @@ header a{
     padding: 0 0.3rem;
     text-align: center;
     justify-content: center;
-    /* height: 100%; */
 }
 header #navbar a{
     padding: 0.5rem 0.3rem;
@@ -44,16 +42,13 @@ header{
     justify-content: space-evenly;
     gap: 0.5rem;
     margin-bottom: 1rem;
-    /* background-color: gray; */
 }
 #navbar{
-    /* padding: 0.5rem; */
     height: 1.7rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* background-color: rebeccapurple; */
 }
 h1{
     font-size: 3rem;
@@ -73,7 +68,6 @@ h1{
     gap: 0.5rem;
 }
 #name h2{
-    /* text-align: right; */
     font-size: 1.5rem;
     font-weight: 500;
 }

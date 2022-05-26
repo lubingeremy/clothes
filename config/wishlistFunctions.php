@@ -7,6 +7,7 @@
       $_SESSION['wishlist']['price'] = array();
 		}
 	}
+
   function addToWishlist($productId, $price){
     createWishlist();
     $position_produit = array_search($productId,  $_SESSION['wishlist']['id']);
@@ -22,16 +23,16 @@
     header('Location: ../wishlist.php');
     exit();
 	}
+
 	function removeProductWishlist($id_product){
 		$productIndex = array_search($id_product,  $_SESSION['wishlist']['id']);
 		if ($productIndex !== false)
 		{
-      // unset($_SESSION['wishlist']['id'][$productIndex]);
-      // unset($_SESSION['wishlist']['price'][$productIndex]);
       array_splice($_SESSION['wishlist']['id'], $productIndex, 1);
       array_splice($_SESSION['wishlist']['price'], $productIndex, 1);
 		}
 	}
+
   function requestWishlistProducts($productsId){
     $products = [];
     if(require("connexion.php")){
@@ -41,6 +42,5 @@
         $products = array_merge($products, $data);
       }
     }
-
     return $products;
   }

@@ -4,7 +4,6 @@
     require_once("config/auth.php");
     require_once("config/cookies.php");
 
-    
     user_connected();
     $produits = (array)afficherListeProduits();
     shuffle($produits);

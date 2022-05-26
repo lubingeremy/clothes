@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="style/cartStyle.css">
   </head>
   <body>
-    <!-- <button>Tout ajouter au panier</button> -->
     <div id="caContainer">
       <?php if(!empty($_SESSION['wishlist']['id'])):?>
         <table>
@@ -41,12 +40,11 @@
           <?php endforeach; ?>
         </table>
       <?php else: ?>
-        <h2>Vous n'avez aucun favoris</h2>
+        <h2>Vous n'avez aucun favori</h2>
       <?php endif; ?>
     </div>
   </body>
 </html>
-
 
 <?php 
   if(isset($_POST['addToCart'])){

@@ -14,18 +14,14 @@ a{
   display: flex;
   flex-direction: column;
 }
-table{
-}
 .caRow{
   height: 5rem;
   overflow: hidden;
-  /* background-color: red; */
 }
 th{
   height: 3rem;
   width: 3rem;
   overflow: hidden;
-  /* background-color: blue; */
 }
 .caseImg{
   overflow: hidden;
@@ -34,19 +30,9 @@ th{
   height: 8rem;
   width: 5rem;
   object-fit: cover;
-  /* opacity: 0.5; */
 }
 td{
   padding-left: 2rem;
-  /* background-color: aquamarine; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center; */
-}
-.caseQte{
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center; */
 }
 .caQte{
   display: inline;
@@ -74,33 +60,4 @@ input[type=submit]{
 input[type=submit]:hover{
   transition: 0.5s;
   background-color: rgb(192, 192, 192);
-
 }
-
-
-/* *{
-}
-
-#tableContainer{
-  width: 100%;
-  padding: 1.5rem;
-  background-color:red;
-  display: flex;
-  justify-content:center;
-}
-
-.imgProduct{
-  height: 2rem
-}
-
-input{
-  font-size: 0.2rem;
-  width: 1rem;
-  height: 0.4rem;
-}
-
-.case{
-  width: 20%;
-  padding: 20px;
-  border: 2px black solid;
-  /* background-color: black; */

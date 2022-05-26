@@ -41,11 +41,13 @@
       }
     }
   }
+
   function filterCookie($category, $categories){
     $key = array_search($category, $categories);
     array_splice($categories,$key,1);
     return $categories;
   }
+
   function topCookie($categories){
     $selectedCategory = $categories[0];
     foreach ($categories as $category){
@@ -55,11 +57,13 @@
     }
     return $selectedCategory;
   }
+
   function remove($selectedCategory, $number){
     $inter = $_COOKIE[$selectedCategory] - $number;
     setcookie($selectedCategory, null, time() - 3600, "/");
     setcookie($selectedCategory, $inter, 0, "/");
   }
+  
   function addPoints($category, $points){
     if ($points === 2){
       if (($_COOKIE[$category] + $points) <= 9){

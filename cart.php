@@ -5,8 +5,6 @@
   user_connected();
   createCart();
   $produits = requestCartProducts($_SESSION['cart']['id']);
-  // var_dump($_SESSION['cart']);
-  // var_dump($produits);
 ?>
 
 <html>

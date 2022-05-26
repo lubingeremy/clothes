@@ -3,7 +3,6 @@
     require_once("config/auth.php");
     require_once("header.php");
     user_connected();
-    // A VOIR ICI
     if(!$_SESSION['op']){
         header('Location: admin/login.php');
         exit();
@@ -23,7 +22,6 @@
             
             try 
             {
-                // echo "OK?";
                 ajouterProduit($image, $nom, $prix, $category);
                 header("Refresh:0");
                 exit();
@@ -67,26 +65,22 @@
             <option value="boheme">Bohème</option>
         </select>
         <input name="valider" type="submit" value="Ajouter">
-        <!-- <button type="submit" name="valider">Ajouter un nouveau produit</button> -->
     </form>
-
     <div id="container">
-        <!-- <div class="container"> -->
-            <?php foreach($produits as $produit): ?>
-                <a href="article.php?idProduit=<?= $produit -> id ?>">
-                    <div class="product <?= $produit -> category ?>">
-                        <div class="image">
-                            <img class="imgProd" src="<?= $produit -> image ?>" alt="Image produit">
-                        </div>
-                        <div class="infos">
-                            <p class="pName"><?= $produit -> titre ?></p>
-                            <p class="pPrice"><?= $produit -> prix ?></p>
-                            <p class="pId"><?= $produit -> id ?></p>
-                        </div>
+        <?php foreach($produits as $produit): ?>
+            <a href="article.php?idProduit=<?= $produit -> id ?>">
+                <div class="product <?= $produit -> category ?>">
+                    <div class="image">
+                        <img class="imgProd" src="<?= $produit -> image ?>" alt="Image produit">
                     </div>
-                </a>
-            <?php endforeach; ?>
-        <!-- </div> -->
+                    <div class="infos">
+                        <p class="pName"><?= $produit -> titre ?></p>
+                        <p class="pPrice"><?= $produit -> prix ?></p>
+                        <p class="pId"><?= $produit -> id ?></p>
+                    </div>
+                </div>
+            </a>
+        <?php endforeach; ?>
     </div>
 </body>
 </html>
