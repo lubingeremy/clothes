@@ -61,7 +61,7 @@
 
         <label for="category" class="form-label">Style</label>
         <select name="category" id="category" required>
-            <option value="chic">Glamour</option>
+            <option value="chic">Chic</option>
             <option value="casual">Casual</option>
             <option value="streetwear">Streetwear</option>
             <option value="boheme">Bohème</option>
@@ -70,14 +70,13 @@
         <!-- <button type="submit" name="valider">Ajouter un nouveau produit</button> -->
     </form>
 
-    <div class="container">
-        <div class="row">
-            
+    <div id="container">
+        <!-- <div class="container"> -->
             <?php foreach($produits as $produit): ?>
                 <a href="article.php?idProduit=<?= $produit -> id ?>">
                     <div class="product <?= $produit -> category ?>">
                         <div class="image">
-                            <img src="<?= $produit -> image ?>" alt="Image produit">
+                            <img class="imgProd" src="<?= $produit -> image ?>" alt="Image produit">
                         </div>
                         <div class="infos">
                             <p class="pName"><?= $produit -> titre ?></p>
@@ -87,7 +86,7 @@
                     </div>
                 </a>
             <?php endforeach; ?>
-        </div>
+        <!-- </div> -->
     </div>
 </body>
 </html>

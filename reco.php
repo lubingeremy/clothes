@@ -7,19 +7,6 @@
     require("header.php");
     
     user_connected();
-    // if($_SESSION['reload']){
-    //     $produits = (array)assembleProductsList()();
-    //     // shuffle($produits);
-    //     $_SESSION['recoList'] = $produits;
-    //     $_SESSION['reload'] = False;
-    // } else{
-    //     $produits = $_SESSION['recoList'];
-    // }
-    // if(isset($_POST['reloadList'])){
-    //     $_SESSION['reload'] = True;
-    //     header('Location: index.php');
-    //     exit();
-    // }
     updateCookies($_COOKIE['casual'], $_COOKIE['boheme'], $_COOKIE['streetwear'], $_COOKIE['chic'], $_SESSION['id']);
     $produits = (array)assembleProductsList();
     $percentage = percentage();
@@ -33,24 +20,24 @@
         <title>CLOTHES | Recommandations</title>    
     </head>
     <body>
-        <h1>Recommandations</h1>
+        <!-- <h2>Recommandations</h2> -->
         <div id="ratio">
-            <p class="streetwear">Streetwear: <?= $percentage[0]?>, soit <?= $nombre[0]?> <?= $_COOKIE['streetwear']?></p>
-            <p class="casual">Casual: <?= $percentage[1]?> soit <?= $nombre[1]?> <?= $_COOKIE['casual']?></p>
-            <p class="chic">Chic: <?= $percentage[2]?> soit <?= $nombre[2]?> <?= $_COOKIE['chic']?></p>
-            <p class="boheme">Bohème: <?= $percentage[3]?> soit <?= $nombre[3]?> <?= $_COOKIE['boheme']?></p>
+            <p class="streetwear">Streetwear: points <?= $_COOKIE['streetwear']?>, nombre <?= $nombre[0]?></p>
+            <p class="casual">Casual: points <?= $_COOKIE['casual']?>, nombre <?= $nombre[1]?></p>
+            <p class="chic">Chic: points <?= $_COOKIE['chic']?>, nombre <?= $nombre[2]?></p>
+            <p class="boheme">Bohème: points <?= $_COOKIE['boheme']?>, nombre <?= $nombre[3]?></p>
         </div>
         <!-- <form action="" method="post">
             <input type="submit" id="reloadList" name="reloadList" value="Reload article list">
         </form> -->
 
-        <div class="container">
-            <div class="row">
+        <div id="container">
+            <!-- <div class="row"> -->
                 <?php foreach($produits as $produit): ?>
                     <a href="article.php?idProduit=<?= $produit -> id ?>">
                         <div class="product <?= $produit -> category ?>">
                             <div class="image">
-                                <img src="<?= $produit -> image ?>" alt="Image produit">
+                                <img class="imgProd" src="<?= $produit -> image ?>" alt="Image produit">
                             </div>
                             <div class="infos">
                                 <p class="pName"><?= $produit -> titre ?></p>
@@ -60,7 +47,7 @@
                         </div>
                     </a>
                 <?php endforeach; ?>
-            </div>
+            <!-- </div> -->
         </div>
     </body>
 </html>

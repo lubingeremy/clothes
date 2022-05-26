@@ -1,3 +1,83 @@
+*{
+  font-size: 1.5vw;
+  color: black;
+  font-weight: 500;
+}
+a{
+  text-decoration: none;
+}
+.prodLink:hover{
+  background-color: transparent;
+}
+#caContainer{
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+table{
+}
+.caRow{
+  height: 5rem;
+  overflow: hidden;
+  /* background-color: red; */
+}
+th{
+  height: 3rem;
+  width: 3rem;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+.caseImg{
+  overflow: hidden;
+}
+.caImg{
+  height: 8rem;
+  width: 5rem;
+  object-fit: cover;
+  /* opacity: 0.5; */
+}
+td{
+  padding-left: 2rem;
+  /* background-color: aquamarine; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+}
+.caseQte{
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+}
+.caQte{
+  display: inline;
+}
+.caForm{
+  display: inline;
+  padding: 0 2rem;
+}
+.caAdd, .caRemove{
+  text-align: center;
+  height: 2rem;
+  width: 2rem;
+  padding: 0.5rem;
+}
+.caPrice{
+  color: rgb(61, 61, 61);
+  font-weight: 800;
+}
+input[type=submit]{
+  background-color: grey;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+input[type=submit]:hover{
+  transition: 0.5s;
+  background-color: rgb(192, 192, 192);
+
+}
+
+
 /* *{
 }
 
@@ -24,4 +104,3 @@ input{
   padding: 20px;
   border: 2px black solid;
   /* background-color: black; */
-} */

@@ -1,0 +1,55 @@
+#arContainer{
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+#arContainerImg{
+  width: 20rem;
+  height: 40rem;
+  overflow: hidden;
+  display: flex;
+  /* flex-grow: 2; */
+  background-color: aqua;
+}
+#arImage{
+  height: 20rem;
+  height: 20rem;
+  position: relative;
+  object-fit: cover;
+}
+#arInfos{
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+#arTitle{
+  font-size: 1.7rem;
+}
+#arCategory{
+  text-transform: capitalize;
+}
+#arForm{
+  margin-top: 2rem;
+}
+#arCaption{
+  margin-top: 2rem;
+  text-align: justify;
+}
+.arButtons{
+  transition: 0.3s;
+  color: black;
+  background-color: transparent;
+  border: 2px solid rgb(105, 105, 105);
+  cursor: pointer;
+  padding: 0.3rem;
+}
+.arButtons:hover{
+  color: rgb(255, 255, 255);
+  transition: 0.3s;
+  background-color: rgb(105, 105, 105);
+  border: 2px solid transparent;
+}
+#size{
+  width: 13rem;
+}

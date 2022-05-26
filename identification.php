@@ -23,10 +23,10 @@
 		<form id="register" action="" method="POST">
 			<h2>Inscription</h2>
 			<label for="lastName">Nom</label>
-			<input id="lastName" name="lastName" type="text" required value="fsognnqfqdp">
+			<input id="lastName" name="lastName" type="text" required>
 			
 			<label for="name">Prénom</label>
-			<input id="name" name="name" type="text" required value="fsognnqfqdp">
+			<input id="name" name="name" type="text" required >
 			
 			<label for="gender">Genre</label>
 			<select name="gender" id="gender" required>
@@ -37,13 +37,13 @@
 			</select>
 			
 			<label for="age">Âge</label>
-			<input type="number" name="age" id="age" step="1" min="13" required value="25">
+			<input type="number" name="age" id="age" step="1" min="13" required>
 			
 			<label for="email">Email</label>
-			<input type="text" placeholder="adresse@mail.com" id="email" name="email" required value="adresse@mail.com"> 
+			<input type="text" placeholder="adresse@mail.com" id="email" name="email" required value="@mail.com"> 
 
 			<label for="password">Mot de passe</label>
-			<input type="password" placeholder="Password" id="password" name="password" required value="newpass">
+			<input type="password" placeholder="Password" id="password" name="password" required>
 			
 			<a id="terms">En créant un compte vous acceptez nos termes et Conditions d'utilisations.</a>
 			
@@ -71,7 +71,7 @@
 		if(!empty($_POST['lastName']) && !empty($_POST['name']) && !empty($_POST['gender']) && !empty($_POST['age']) && !empty($_POST['email']) && !empty($_POST['password'])){
 			try{
 				register($_POST['lastName'],$_POST['name'],$_POST['gender'],$_POST['age'],$_POST['email'],$_POST['password']);
-				header('Location: login.php');
+				header('Location: identification.php');
 				exit();
 			} catch (Exception $e){
 				$error = TRUE;

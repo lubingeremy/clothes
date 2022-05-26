@@ -15,21 +15,39 @@
 		<head>
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="style/articleStyle.css">
 			<title>CLOTHES | <?=$prd -> titre?></title>
 		</head>
 		<body>
-			<h2><?=$prd -> titre?></h2>
-			<form method="POST">
-				<input name="panier" type="submit" value="Ajouter au panier">
-				<input name="wishlist" type="submit" value="Ajouter aux favoris">
-			</form>
-			<p>Catégorie: </p>
-			<p id="category"><?= $prd -> category?></p>
-			<div class="infos">
-				<p class="pPrice"><?= $prd -> prix ?></p>
-				<p class="pId"><?= $prd -> id ?></p>
+			<div id="arContainer">
+				<div id="arImg">
+					<img id="arImage" src="<?= $prd -> image ?>" alt="Image produit">
+				</div>
+				<div id="arInfos">
+					<h2 id="arTitle"><?=$prd -> titre?></h2>
+					<p id="arCategory"><?= $prd -> category?></p>
+					<p id="category" style="display: none"><?= $prd -> category?></p>
+					<p class="arPrice"><?= $prd -> prix ?> €</p>
+					<select name="" id="size" required>
+						<option value="">Sélectionner une taille</option>
+						<option value="XS">XS</option>
+						<option value="S" disabled>S - Indisponible</option>
+						<option value="M" disabled>M - Indisponible</option>
+						<option value="L">L</option>
+						<option value="XL" disabled>XL - Indisponible</option>
+						<option value="2XL">2XL</option>
+						<option value="3XL">3XL</option>
+						<option value="4XL">4XL</option>
+					</select>
+					<form id="arForm" method="POST">
+						<input class="arButtons" name="panier" type="submit" value="Ajouter au panier">
+						<input class="arButtons" name="wishlist" type="submit" value="Ajouter aux favoris">
+					</form>
+					<p id="arCaption">Lorem ipsum dolor sit amet concentre consectetur adipisicing toi elit. Quas nam, sur quod et la illo prez, cupiditate ipsum aut eos excepturi reprehenderit exercitationem nisi explicabo. Rem reiciendis iusto Description d'article robcaecati aliquam repudiandae fugit?</p>
+				</div>
 			</div>
-			<img src="<?= $prd -> image ?>" alt="Image produit">
+			
+			
 			<script src="../node_modules/timeme.js/timeme.min.js"></script>
 			<script src="../scr.js"></script>
 		</body>

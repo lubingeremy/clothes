@@ -8,18 +8,14 @@
         $products = array_merge($products, $data);
       }
     }
-
     return $products;
   }
 
   function mainRemove($category, $number){
     $categories = ["boheme","casual","chic","streetwear"];
     $categories = filterCookie($category, $categories);
-    
     $selectedCategory = topCookie($categories);
-
     if($number === 2){
-
       if ($_COOKIE[$selectedCategory] > 2){
         remove($selectedCategory, 2);
         return 2;
@@ -67,30 +63,25 @@
   function addPoints($category, $points){
     if ($points === 2){
       if (($_COOKIE[$category] + $points) <= 9){
-        var_dump("ici?1");
         $result = mainRemove($category, $points);
         $inter = $_COOKIE[$category] + $result;
         setcookie($category, null, time() - 3600, "/");
         setcookie($category, $inter, 0, "/");
       } elseif (($_COOKIE[$category] + $points - 1) <= 9){
-        var_dump("ici?2");
         $result = mainRemove($category, $points - 1);
         $inter = $_COOKIE[$category] + $result;
         setcookie($category, null, time() - 3600, "/");
         setcookie($category, $inter, 0, "/");
       } else {
-        var_dump("ici?3");
         return "Exceed";
       }
     } elseif ($points === 1){
       if (($_COOKIE[$category] + $points) <= 9){
-        var_dump("ici?4");
         $result = mainRemove($category, $points);
         $inter = $_COOKIE[$category] + $result;
         setcookie($category, null, time() - 3600, "/");
         setcookie($category, $inter, 0, "/");
       } else {
-        var_dump("ici?5");
         return "Exceed";
       }
     }

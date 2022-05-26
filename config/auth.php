@@ -9,7 +9,7 @@
     
     function user_connected(): void{
             if(!is_connected()){
-                header('Location: login.php');
+                header('Location: identification.php');
                 exit();
             }
     }

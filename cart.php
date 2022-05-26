@@ -14,39 +14,48 @@
     <link rel="stylesheet" href="style/cartStyle.css">
   </head>
   <body>
-    <div id="tableContainer">
+    <div id="caContainer">
+    <?php if(!empty($_SESSION['cart']['id'])):?>
       <table>
         <?php foreach($produits as $index => $produit): ?>
-          <tr id="row">
-            <td class="case">
-              <img class="imgProduct" src="<?= $produit -> image ?>" alt="Image produit"></td>
-            <td class="case"><p class="pPrice"><?= $produit -> prix ?></p></td>
-            <td class="case">
-              <a href="article.php?idProduit=<?= $produit -> id ?>">
-                <p class="pName"><?= $produit -> titre ?></p>
+          <tr class="caRow">
+            <th class="caseImg">
+              <a class="prodLink" href="article.php?idProduit=<?= $produit -> id ?>">
+              <img class="caImg" src="<?= $produit -> image ?>" alt="Image produit">
+              </a>
+            </th>
+            <td class="caseTitle">
+              <a class="prodLink" href="article.php?idProduit=<?= $produit -> id ?>">
+                <p class="caTitle"><?= $produit -> titre ?></p>
               </a>
             </td>
-            <td class="case">
-              <p><?= $_SESSION['cart']['quantity'][$index] ?></p>
-            </td>
-            <td class="case">
-              <form method="POST">
+            <td class="casePrice"><p class="caPrice"><?= $produit -> prix ?> €</p></td>
+            <td class="caseQte">
+              <p class="caQte">Quantité: <?= $_SESSION['cart']['quantity'][$index] ?></p>
+              <form class="caForm" method="POST">
                 <input type="number" name="index" style="display: none" value=<?= $index ?>>
-                <input name="add" type="submit" value="+">
-                <input name="remove" type="submit" value="-">
-                <p></p>
+                <input name="add" class="caAdd" type="submit" value="+">
+                <input name="remove" class="caRemove" type="submit" value="-">
               </form>
             </td>
           </tr>
-          <?php endforeach; ?>
-          <tr>
-            <td></td>
-            <td>Total: <?= totalPrice();?></td>
-              <td>
-                <button>Payer commande</button>
-              </td>
-            </tr>
-          </table>
+        <?php endforeach; ?>
+        <tfoot id="caProceed">
+          <td></td>
+          <td></td>
+          <td>Total: <?= totalPrice();?> €</td>
+          <td>
+            <button>
+              <a href="order.php">Procéder au paiement</a>
+            </button>
+          </td>
+        </tfoot>
+      </table>
+      <?php else: ?>
+        <h2>Votre panier est vide</h2>
+        <?php endif; ?>
+      
+      <div></div>
     </div>
   </body>
 </html>
